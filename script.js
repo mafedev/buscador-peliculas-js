@@ -19,5 +19,31 @@ document.getElementById("btn-busqueda").addEventListener("click", (event) => {
 function fetchPelicula(pelicula){
   fetch(`${url}?t=${pelicula}&apikey=${api_key}`)
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => mostrarDatosPelicula(response))
+}
+
+function mostrarDatosPelicula(data){
+  console.log(data);
+  const divDatosPelicula = document.getElementById('result');
+
+  const nombre = data.Title;
+  const anio = data.Year;
+  const director = data.Director
+  const poster = data.Poster;
+
+
+  // -------------- CREACIÓN DE ELEMENTOS
+  const tituloPelicula = document.createElement("h1");
+  tituloPelicula.textContent = nombre;
+
+  const anioPelicula = document.createElement("p");
+  anioPelicula.textContent = `Año: ${anio}`;
+
+  const posterElement = document.createElement("img");
+  posterElement.src = poster;
+
+  divDatosPelicula.appendChild(tituloPelicula);
+  divDatosPelicula.appendChild(anioPelicula);
+  divDatosPelicula.appendChild(posterElement);
+
 }

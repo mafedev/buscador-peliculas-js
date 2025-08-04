@@ -1,3 +1,4 @@
+let url = "https://www.omdbapi.com/";
 let api_key = API_KEY;
 
 const input = document.getElementById("input").value
@@ -11,5 +12,12 @@ document.getElementById("btn-busqueda").addEventListener("click", () => {
 document.getElementById("btn-busqueda").addEventListener("click", (event) => {
   event.preventDefault(); // Evita que el formulario se envíe y recargue la página
   const value = document.getElementById("input").value;
-  console.log(value);
+  fetchPelicula(value);
 });
+
+// FETCH
+function fetchPelicula(pelicula){
+  fetch(`${url}?t=${pelicula}&apikey=${api_key}`)
+    .then(response => response.json())
+    .then(response => console.log(response))
+}

@@ -1,1 +1,0 @@
-const API_KEY = "your-personal-api-key"; // Replace with your API key

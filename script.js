@@ -1,4 +1,5 @@
-let api_key = APY_KEY;
+let api_key = API_KEY;
+
 const input = document.getElementById("input").value
 
 // Obtiene el valor del input

@@ -27,12 +27,26 @@ function mostrarDatosPelicula(data) {
   const divDatosPelicula = document.getElementById("result");
   divDatosPelicula.innerHTML = ""; // Limpia el contenido previo
 
-  // Mapea los resultados y crea el HTML
-  divDatosPelicula.innerHTML = data.Search.map((pelicula) => `
-    <div class="pelicula">
-    <h1>${pelicula.Title}</h1>
-      <img src="${pelicula.Poster}" alt="${pelicula.Title}">
-    </div>
-  `
-  ).join(""); // Une los elementos del array en un string HTML
+  // Recorre las películas y crea elementos HTML
+  data.Search.forEach((pelicula) => {
+    const card = document.createElement("div");
+    card.classList.add("pelicula");
+
+    const poster = document.createElement("img");
+    poster.src = pelicula.Poster;
+    poster.alt = pelicula.Title;
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = pelicula.Title;
+
+    const anio = document.createElement("p");
+    anio.textContent = `Año: ${pelicula.Year}`;
+
+    // AGREGAR ELEMENTOS
+    card.appendChild(poster);
+    card.appendChild(titulo);
+    card.appendChild(anio);
+
+    divDatosPelicula.appendChild(card); // Agrega la tarjeta al contenedor
+  });
 }

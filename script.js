@@ -42,6 +42,13 @@ function mostrarDatosPelicula(data) {
     const anio = document.createElement("p");
     anio.textContent = `Año: ${pelicula.Year}`;
 
+    const idPelicula = pelicula.imdbID;
+    card.id = idPelicula; // Asigna el ID de la película al div
+
+    card.addEventListener("click", () => {
+      window.location.href = `datosPelicula.html?id=${idPelicula}`; // Redirige a la página de detalles de la película
+    });
+
     // AGREGAR ELEMENTOS
     card.appendChild(poster);
     card.appendChild(titulo);

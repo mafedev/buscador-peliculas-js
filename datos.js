@@ -20,4 +20,32 @@ function fetchDetallesPelicula(id) {
 
 function detallesPelicula(data) {
   console.log(data);
+  const divDetalles = document.getElementById("divDatosPelicula");
+
+  // CREAR ELEMENTOS
+  const movie = data.Title;
+  const poster = data.Poster;
+  const released = data.Released;
+  const actors = data.Actors;
+  const plot = data.Plot;
+  const genre = data.Genre;
+
+  const movieTitle = document.createElement("h2");
+  movieTitle.textContent = movie;
+
+  const description = document.createElement("p");
+  description.innerHTML = `Año: ${released}<br>${genre}`;
+
+  const posterImg = document.createElement("img");
+  posterImg.src = poster;
+  posterImg.alt = movie;
+
+  const plotText = document.createElement("p");
+  plotText.textContent = `${plot} \n Reparto: ${actors}`;
+
+  divDetalles.appendChild(movieTitle);
+  divDetalles.appendChild(description);
+  divDetalles.appendChild(posterImg);
+  divDetalles.appendChild(plotText);
+
 }

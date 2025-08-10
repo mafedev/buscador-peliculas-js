@@ -30,7 +30,7 @@ function mostrarDatosPelicula(data) {
   // Recorre las películas y crea elementos HTML
   data.Search.forEach((pelicula) => {
     const card = document.createElement("div");
-    card.classList.add("pelicula");
+    card.classList.add("card");
 
     const poster = document.createElement("img");
     poster.src = pelicula.Poster;
@@ -41,6 +41,9 @@ function mostrarDatosPelicula(data) {
 
     const anio = document.createElement("p");
     anio.textContent = `Año: ${pelicula.Year}`;
+
+    const btnCard = document.createElement("btn");
+    btnCard.classList.add("btn");
 
     const idPelicula = pelicula.imdbID;
     card.id = idPelicula; // Asigna el ID de la película al div
@@ -53,6 +56,7 @@ function mostrarDatosPelicula(data) {
     card.appendChild(poster);
     card.appendChild(titulo);
     card.appendChild(anio);
+    card.appendChild(btnCard);
 
     divDatosPelicula.appendChild(card); // Agrega la tarjeta al contenedor
   });

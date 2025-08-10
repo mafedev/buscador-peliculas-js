@@ -29,35 +29,51 @@ function mostrarDatosPelicula(data) {
 
   // Recorre las películas y crea elementos HTML
   data.Search.forEach((pelicula) => {
+    // Crear tarjeta
     const card = document.createElement("div");
     card.classList.add("card");
 
+    // Imagen de la película
     const poster = document.createElement("img");
     poster.src = pelicula.Poster;
     poster.alt = pelicula.Title;
 
+    // Contenedor de la información
+    const content = document.createElement("div");
+    content.classList.add("content");
+
     const titulo = document.createElement("h3");
+    titulo.classList.add("heading");
     titulo.textContent = pelicula.Title;
 
     const anio = document.createElement("p");
+    anio.classList.add("para");
     anio.textContent = `Año: ${pelicula.Year}`;
 
-    const btnCard = document.createElement("btn");
+    const btnCard = document.createElement("button");
     btnCard.classList.add("btn");
+    btnCard.textContent = "Ver más";
 
+    // Guardar ID de película
     const idPelicula = pelicula.imdbID;
-    card.id = idPelicula; // Asigna el ID de la película al div
 
+    // Evento para el botón
+    btnCard.addEventListener("click", () => {
+      window.location.href = `datosPelicula.html?id=${idPelicula}`;
+    });
+
+    // Click en la tarjeta completa
     card.addEventListener("click", () => {
-      window.location.href = `datosPelicula.html?id=${idPelicula}`; // Redirige a la página de detalles de la película
+      window.location.href = `datosPelicula.html?id=${idPelicula}`;
     });
 
     // AGREGAR ELEMENTOS
-    card.appendChild(poster);
-    card.appendChild(titulo);
-    card.appendChild(anio);
-    card.appendChild(btnCard);
+    content.appendChild(poster);
+    content.appendChild(titulo);
+    content.appendChild(anio);
+    content.appendChild(btnCard);
+    card.appendChild(content);
 
-    divDatosPelicula.appendChild(card); // Agrega la tarjeta al contenedor
+    divDatosPelicula.appendChild(card);
   });
 }

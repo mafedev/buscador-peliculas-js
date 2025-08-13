@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css">
-    <title>Buscador</title>
+    <title>Inicio</title>
   </head>
   <body>
     <nav class="navbar">
@@ -21,20 +21,27 @@
       </div>
     </nav>
 
+    <main class="main-content">
+      <section class="welcome">
+        <h1>¡Bienvenidos a CuavAPI!</h1>
+        <p>Tu portal para buscar películas y obtener toda su información al instante.</p>
+      </section>
+    
+      <section class="features">
+        <h2>¿Qué puedes hacer en CuavAPI?</h2>
+        <ul>
+          <li>Busca películas por título o actor.</li>
+          <li>Consulta detalles completos de cada película.</li>
+          <li>Explora trailers, sinopsis y valoraciones.</li>
+        </ul>
+      </section>
+    
+      <section class="call-to-action">
+        <h2>Empieza ahora</h2>
+        <p>Ve a la sección de <a href="buscar.html">Buscar</a> y encuentra tu película favorita.</p>
+      </section>
+    </main>
 
-    <section class="busqueda">
-      <h2>Busca una película</h2>
-      <form>
-        <input
-          type="text" name="query" id="input" placeholder="Ingrese el nombre de una película"/>
-        <button id="btn-busqueda">Buscar</button>
-      </form>
-    </section>
-
-    <div id="result">
-      <!-- Aquí se mostrarán los resultados de la búsqueda -->
-      <h2>Resultados de búsqueda</h2>
-    </div>
 
     <script src="../js/config.js"></script>
     <script src="../js/script.js"></script>

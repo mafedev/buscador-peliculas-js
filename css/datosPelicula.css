@@ -1,0 +1,227 @@
+body {
+  background: linear-gradient(135deg, #1a0f0f, #2b1a2f);
+  color: #f5f6fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 32px;
+  color: #ffb347;
+  letter-spacing: 2px;
+}
+
+/* ----- Layout Principal ----- */
+#divDatosPelicula {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  margin: 40px 4vw;
+}
+
+.pelicula-info {
+  flex: 1 1 400px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 0 0 2vw;
+}
+
+/* ----- Títulos y Subinfo ----- */
+.pelicula-titulo {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #ffb347;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.pelicula-anio {
+  font-size: 1.2rem;
+  color: #b2becd;
+  font-weight: 500;
+}
+
+.pelicula-subinfo {
+  font-size: 1rem;
+  color: #b2becd;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+/* ----- Extra Info Span ----- */
+.pelicula-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 1.05rem;
+}
+.pelicula-extra span {
+  background: rgba(255, 179, 71, 0.1);
+  border: 1px solid #ffb347;
+  border-radius: 8px;
+  padding: 6px 14px;
+  color: #ffb347;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+.pelicula-extra span:hover {
+  background: #ffb347;
+  color: #181c24;
+  transform: translateY(-2px);
+}
+
+/* ----- Card ----- */
+.pelicula-card {
+  background: #23283a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+}
+.pelicula-card:hover {
+  transform: translateY(-4px);
+}
+.pelicula-card h3 {
+  margin: 0 0 8px;
+  color: #ffb347;
+}
+
+/* ----- Poster ----- */
+.pelicula-poster {
+  flex-shrink: 0;
+  width: 370px;
+  max-width: 90vw;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.pelicula-poster:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+}
+
+/* ----- Tabla Ficha Técnica ----- */
+.pelicula-tabla {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 24px 0 8px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #23283a;
+  font-size: 1.07rem;
+}
+.pelicula-tabla th,
+.pelicula-tabla td {
+  padding: 12px 16px;
+}
+.pelicula-tabla th {
+  text-align: left;
+  background: #2a2f45;
+  color: #ffb347;
+  width: 35%;
+  font-weight: 700;
+  border-bottom: 2px solid #ffb347;
+}
+.pelicula-tabla td {
+  background: #1f2330;
+  color: #f5f6fa;
+  border-bottom: 1px solid #23283a;
+  transition: background 0.2s;
+}
+.pelicula-tabla tr:nth-child(even) td {
+  background: #23283a;
+}
+.pelicula-tabla tr:hover td {
+  background: #282d3f;
+}
+.pelicula-tabla tr:last-child td {
+  border-bottom: none;
+}
+
+/* ----- Accordion ----- */
+.accordion {
+  margin-top: 20px;
+}
+.accordion-btn {
+  background: #2a2f45;
+  color: #ffb347;
+  cursor: pointer;
+  padding: 14px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: background 0.3s;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.accordion-btn:hover,
+.accordion-btn.active {
+  background: #ffb347;
+  color: #181c24;
+}
+.panel {
+  background: #23283a;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease-out;
+  border-radius: 0 0 6px 6px;
+  padding: 0 14px;
+}
+.panel p {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+/* ----- Listas ----- */
+.actor-list,
+.ratings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.actor-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.actor-list li:last-child {
+  border-bottom: none;
+}
+.ratings-list li {
+  margin-bottom: 6px;
+  color: #f5f6fa;
+}
+.ratings-list strong {
+  color: #ffb347;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  #divDatosPelicula {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 28px;
+    margin: 24px 2vw;
+  }
+  .pelicula-info {
+    padding: 0;
+    max-width: 98vw;
+  }
+  .pelicula-poster {
+    width: 98vw;
+    max-width: 370px;
+  }
+}
